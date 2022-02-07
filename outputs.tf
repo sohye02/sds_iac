@@ -4,7 +4,8 @@
 
 output "resource_prefix" {
   description = "resource_prefix"
-  value       = random_string.random.result
+#  value       = random_string.random.result
+  value       = var.resource_prefix
 }
 
 

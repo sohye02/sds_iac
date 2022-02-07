@@ -9,7 +9,7 @@ terraform {
 }
 
 variable "aws_region" {
-  default     = "ap-northeast-2"
+  default     = "ap-southeast-1"
   description = "AWS region"
 }
 
