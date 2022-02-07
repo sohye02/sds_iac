@@ -55,7 +55,7 @@ resource "aws_db_instance" "terra" {
 
 
 resource "aws_db_parameter_group" "terra" {
-  name    = "terraparameter"
+  name    = "${var.resource_prefix}-terraparameter"
   family  = "mariadb10.5"
   parameter {
     name  = "max_connections"

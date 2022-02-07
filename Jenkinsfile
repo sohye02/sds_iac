@@ -49,7 +49,7 @@ pipeline {
                 }
             }
         }
-        stage('terraform destroy'){
+        stage('terraform apply'){
             steps{
                 container('terraform'){
                     withCredentials([[
@@ -59,8 +59,8 @@ pipeline {
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                         ]]) {
                             ansiColor('xterm') {
-                              sh 'terraform destroy -auto-approve'
-                            }
+                              sh 'terraform apply -auto-approve'
+                         }
                     }
                 }
             }

@@ -9,7 +9,7 @@ terraform {
 }
 
 variable "aws_region" {
-  default     = "ap-southeast-1"
+  default     = "us-west-2"
   description = "AWS region"
 }
 
@@ -25,7 +25,7 @@ resource "random_string" "random" {
 
 variable "resource_prefix" {
   description = "Input the resource prefix (eg. kim)"
-  default     = "emarket-sohye"
+  default     = "emarket-psh"
 }
 
 
