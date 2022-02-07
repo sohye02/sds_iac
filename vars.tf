@@ -2,7 +2,7 @@
 terraform {
   backend "s3" {
     bucket = "terraform-bucket-psh"
-    key    = "terraform.tfstate"
+    key    = "emarket/terraform.tfstate"
     region = "ap-northeast-2"
   }
   required_version = ">= 0.12"
