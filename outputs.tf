@@ -8,6 +8,16 @@ output "resource_prefix" {
   value       = var.resource_prefix
 }
 
+### EKS
+output "config_map_aws_auth" {
+  description = "EKS : config_map_aws_auth"
+  value       = module.eks.config_map_aws_auth
+}
+
+output "kubeconfig" {
+  description = "EKS : kubeconfig"
+  value       = module.eks.kubeconfig
+}
 
 ### RDS(Mariadb)
 output "mariadb_endpoint" {
