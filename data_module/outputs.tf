@@ -38,4 +38,3 @@ output "aws_iam_user_for_s3" {
   description = "aws_iam_user_for_s3"
   value       = element(concat(aws_iam_user.terra.*.name, [""]), 0)
 }
-
