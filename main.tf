@@ -20,8 +20,8 @@ module "vpc" {
 module "eks" {
   source = "./eks_module"
 
-  resource_prefix   = var.resource_prefix
-#  resource_prefix   = random_string.random.result
+  resource_prefix = var.resource_prefix
+  #  resource_prefix   = random_string.random.result
   cluster_name      = var.cluster_name
   cluster_node_name = var.cluster_node_name
   node_type         = var.node_type
@@ -35,7 +35,7 @@ module "eks" {
 module "data" {
   source          = "./data_module"
   resource_prefix = var.resource_prefix
-#  resource_prefix = random_string.random.result
+  #  resource_prefix = random_string.random.result
 
   mariadb_version          = var.mariadb_version
   mariadb_storage          = var.mariadb_storage
