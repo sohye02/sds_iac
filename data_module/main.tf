@@ -23,7 +23,7 @@ resource "aws_s3_bucket_public_access_block" "terra" {
 
 # create iam user for emarket s3 resource
 resource "aws_iam_user" "terra" {
-  name = "${aws_s3_bucket.terra.name}-user"
+  name = "${aws_s3_bucket.terra.bucket}-user"
 }
 
 # generate access key for iam user

@@ -6,7 +6,6 @@ variable "mariadb_name"             {}
 variable "mariadb_instance_class"   {}
 variable "mariadb_master_user_name" {}
 variable "mariadb_master_password"  {}
-variable "s3_bucket_name"           {}
 variable "redis_port"               {}
 variable "vpc_id"                   {}
 variable "subnet_id1"               {}
