@@ -42,9 +42,8 @@ output "redis_cluster_endpoint" {
 }
 
 
-## EIP1,2 allocatin_id
+## EIP
 output "eip_allocation_id" {
-  description = "Contains the public IP address"
-  value       = [module.vpc.public_ip[0], module.vpc.public_ip[1]]
+  description = "EIP allocated ID"
+  value       = [module.vpc.public_ip[*]]
 }
-
