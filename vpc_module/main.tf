@@ -41,7 +41,7 @@ resource "aws_subnet" "private" {
   vpc_id = aws_vpc.terra.id
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   cidr_block              = "10.0.1${count.index}.0/24"
-  map_public_ip_on_launch = true
+#  map_public_ip_on_launch = true
 
   tags = tomap({
     "Name"                                      = "${var.resource_prefix}-terraform-private-subnet${count.index+1}",
