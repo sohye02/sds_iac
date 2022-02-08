@@ -21,6 +21,40 @@ resource "aws_s3_bucket_public_access_block" "terra" {
   ignore_public_acls = true
 }
 
+# create iam user for emarket s3 resource
+resource "aws_iam_user" "terra" {
+  name = "${aws_s3_bucket.terra.name}-user"
+}
+
+# generate access key for iam user
+resource "aws_iam_access_key" "terra" {
+  user = "${aws_iam_user.terra.name}"
+}
+
+# grant iam user to access emarket s3
+resource "aws_s3_bucket_policy" "terra" {
+  bucket = "${aws_s3_bucket.terra.id}"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "${aws_iam_user.terra.arn}"
+      },
+      "Action": [ "s3:*" ],
+      "Resource": [
+        "${aws_s3_bucket.terra.arn}",
+        "${aws_s3_bucket.terra.arn}/*"
+      ]
+    }
+  ]
+}
+EOF
+}
+
 
 ## creat rds #####################################################
 resource "random_string" "password" {

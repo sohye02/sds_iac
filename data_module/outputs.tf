@@ -32,3 +32,10 @@ output "redis_cluster_endpoint" {
   description = "The elasticache_cluster connection endpoint url"
   value       = local.redis_cluster_endpoint
 }
+
+## s3
+output "aws_iam_user_for_s3" {
+  description = "aws_iam_user_for_s3"
+  value       = element(concat(aws_iam_user.terra.*.name, [""]), 0)
+}
+

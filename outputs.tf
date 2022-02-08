@@ -47,3 +47,9 @@ output "eip_allocation_id" {
   description = "EIP allocated ID"
   value       = [module.vpc.public_ip[*]]
 }
+
+## iam user key for emarket s3 access
+output "aws_iam_user_for_s3" {
+  description = "aws_iam_user_for_emarket_s3"
+  value       = module.data.aws_iam_user_for_s3
+}

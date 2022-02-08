@@ -11,4 +11,4 @@ variable "redis_port"               {}
 variable "vpc_id"                   {}
 variable "subnet_id1"               {}
 variable "subnet_id2"               {}
-
+variable "s3_bucket_name"           {}
