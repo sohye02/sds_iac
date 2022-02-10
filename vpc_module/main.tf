@@ -15,7 +15,7 @@ resource "aws_vpc" "terra" {
   cidr_block = "10.0.0.0/16"
 
   tags = tomap({
-    "Name"                                      = "${var.resource_prefix}-terraform-vpc",
+    "Name" = "${var.resource_prefix}-terraform-vpc",
     "kubernetes.io/cluster/${var.cluster_name}" = "shared",
   })
 }
@@ -30,8 +30,8 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 
   tags = tomap({
-    "Name"                                      = "${var.resource_prefix}-terraform-public-subnet${count.index+1}",
-    "kubernetes.io/cluster/${var.cluster_name}" = "shared",
+    "Name" = "${var.resource_prefix}-terraform-public-subnet${count.index+1}",
+    "kubernetes.io/cluster/${var.resource_prefix}-${var.cluster_name}" = "shared",
   })
 }
 
