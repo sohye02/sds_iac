@@ -3,8 +3,8 @@
 #
 
 locals {
-  mariadb_endpoint   = element(concat(aws_db_instance.terra.*.endpoint, aws_db_instance.terra.*.endpoint, [""]), 0)
-  mariadb_user_name  = element(concat(aws_db_instance.terra.*.username, aws_db_instance.terra.*.username, [""]), 0)
+  mariadb_endpoint  = element(concat(aws_db_instance.terra.*.endpoint, aws_db_instance.terra.*.endpoint, [""]), 0)
+  mariadb_user_name = element(concat(aws_db_instance.terra.*.username, aws_db_instance.terra.*.username, [""]), 0)
 }
 
 output "mariadb_endpoint" {
@@ -19,13 +19,13 @@ output "mariadb_user_name" {
 
 output "mariadb_user_password" {
   description = "The master password for the database"
-  value       = "${random_string.password.result}"
+  value       = random_string.password.result
 }
 
 
 ## elasticache(Redis)
 locals {
-  redis_cluster_endpoint  = element(concat(aws_elasticache_cluster.terra.*.cache_nodes, aws_elasticache_cluster.terra.*.cache_nodes, [""]), 0)
+  redis_cluster_endpoint = element(concat(aws_elasticache_cluster.terra.*.cache_nodes, aws_elasticache_cluster.terra.*.cache_nodes, [""]), 0)
 }
 
 output "redis_cluster_endpoint" {
@@ -34,7 +34,9 @@ output "redis_cluster_endpoint" {
 }
 
 ## s3
+/*
 output "aws_iam_user_for_s3" {
   description = "aws_iam_user_for_s3"
   value       = element(concat(aws_iam_user.terra.*.name, [""]), 0)
 }
+*/
