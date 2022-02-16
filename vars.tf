@@ -42,7 +42,7 @@ variable "cluster_node_name" {
 
 
 variable "node_type" {
-  default = ["c5.4xlarge"]
+  default = ["c5.2xlarge"]
   #  default = ["t3.small"]
   type = list(any)
 }
